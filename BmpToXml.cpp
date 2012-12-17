@@ -1,7 +1,7 @@
 #include "BmpToXml.h"
 
-BmpToXml::BmpToXml(const QString imgPrefix
-				   , const QString imgPostfix
+BmpToXml::BmpToXml(const QString &imgPrefix
+				   , const QString &imgPostfix
 				   , const int countOfImages
 				   , const int sensitivity
 				   , const int imgSizeX
@@ -74,7 +74,7 @@ QDomElement BmpToXml::saveImage(QDomDocument &sampleXml, const int imgNum) {
 	return image;
 }
 
-void BmpToXml::makeXml(QString xmlFile) {
+void BmpToXml::makeXml(const QString &xmlFile) {
 	QDomDocument sampleXml ("NeuralNetworkSample");
 	QDomElement sample = sampleXml.createElement("sample");
 	sample.setAttribute("countOfImages", mCountOfImages);

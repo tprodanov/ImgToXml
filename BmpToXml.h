@@ -4,14 +4,14 @@
 class BmpToXml
 {
 public:
-	BmpToXml(const QString imgPrefix
-			 , const QString imgPostfix
+	BmpToXml(const QString &imgPrefix
+			 , const QString &imgPostfix
 			 , const int countOfImages
 			 , const int sensitivity
 			 , const int imgSizeX
 			 , const int imgSizeY
 			 );
-	void makeXml(QString xmlFile);
+	void makeXml(const QString &xmlFile);
 private:
 	void makeNowInput(const int imgNumber);
 	QDomElement saveImage(QDomDocument &sampleXml, const int imgNum);

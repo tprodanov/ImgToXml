@@ -1,7 +1,5 @@
 #pragma once
 #include <QtXml>
-#include <QImage>
-
 
 class ImgToXml
 {
@@ -15,6 +13,7 @@ public:
 			 , const QVector<int> &imgClassVec
 			 );
 	void makeXml(QString xmlFile);
+	void convert(QString imgName, QString xmlFile);
 private:
 	void makeNowInput(const int imgNum);
 	QDomElement saveImage(QDomDocument &sampleXml, const int imgNum);
