@@ -5,7 +5,7 @@ ImgToXml::ImgToXml(const QString imgPrefix
 				   , const int countOfImages
 				   , const int sensitivity
 				   , const int imgSizeX
-				   , const int imgSizeY
+				   , const int imgSizeY, const QVector<int> &imgClassVec
 				   ) {
 	mImgPrefix = imgPrefix;
 	mImgPostfix = imgPostfix;
@@ -14,6 +14,7 @@ ImgToXml::ImgToXml(const QString imgPrefix
 	mImgSizeY = imgSizeY;
 	mSens = sensitivity;
 	mNowInput.resize(imgSizeX * imgSizeY);
+	mImgClassVec = imgClassVec;
 }
 
 void ImgToXml::makeNowInput(const int imgNum) {
@@ -38,6 +39,7 @@ void ImgToXml::makeNowInput(const int imgNum) {
 QDomElement ImgToXml::saveImage(QDomDocument &sampleXml, const int imgNum) {
 	QDomElement image = sampleXml.createElement("image");
 	image.setAttribute("number", imgNum + 1);
+	image.setAttribute("imageClass", mImgClassVec.at(imgNum));
 	int i, j;
 	QString lineStr;
 	makeNowInput(imgNum);
